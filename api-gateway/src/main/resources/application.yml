@@ -4,7 +4,12 @@ server:
 spring:
   application:
     name: API-GATEWAY
+  config:
+    import: optional:configserver:http://localhost:9296
   cloud:
+    config:
+      enabled: true
+      uri: http://localhost:9296  
     gateway:
       routes:
         - id: USER-SERVICE
@@ -15,11 +20,3 @@ spring:
           uri: lb://DEPARTMENT-SERVICE
           predicates:
             - Path=/departments/**
-eureka:
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    hostname: localhost   

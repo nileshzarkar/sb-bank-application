@@ -5,12 +5,5 @@ spring:
     url: jdbc:h2:mem:mydb;NON_KEYWORDS=user
   application:
     name: USER-SERVICE    
-
-eureka:
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    hostname: localhost    
+  config:
+    import: optional:configserver:http://localhost:9296
