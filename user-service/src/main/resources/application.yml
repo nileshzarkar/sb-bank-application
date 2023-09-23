@@ -3,3 +3,14 @@ server:
 spring:
   datasource:
     url: jdbc:h2:mem:mydb;NON_KEYWORDS=user
+  application:
+    name: DEPARTMENT-SERVICE    
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost    
